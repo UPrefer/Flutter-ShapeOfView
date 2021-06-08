@@ -13,11 +13,11 @@ class TriangleShape extends Shape {
   });
 
   @override
-  Path build({Rect rect, double scale}) {
-    return generatePath(rect: rect);
+  Path build({required Rect rect, double? scale}) {
+    return generatePath(rect);
   }
 
-  Path generatePath({bool useBezier, Rect rect}) {
+  Path generatePath(Rect rect) {
     final width = rect.width;
     final height = rect.height;
     return Path()

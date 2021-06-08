@@ -1,4 +1,6 @@
-# flutter_shape_of_view
+# u_shape_of_view
+
+Forked from [https://github.com/florent37/Flutter-ShapeOfView](https://github.com/florent37/Flutter-ShapeOfView)
 
 Give a custom shape to any flutter widget, Material Design 2 ready
 

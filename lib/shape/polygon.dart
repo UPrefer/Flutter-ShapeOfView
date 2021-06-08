@@ -9,11 +9,11 @@ class PolygonShape extends Shape {
   PolygonShape({this.numberOfSides = 5}) : assert(numberOfSides >= 3);
 
   @override
-  Path build({Rect rect, double scale}) {
+  Path build({required Rect rect, double? scale}) {
     return generatePath(rect: rect);
   }
 
-  Path generatePath({bool useBezier, Rect rect}) {
+  Path generatePath({required Rect rect}) {
     final height = rect.height;
     final width = rect.width;
 

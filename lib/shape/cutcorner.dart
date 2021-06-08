@@ -6,14 +6,14 @@ import 'package:shape_of_view/shape_of_view.dart';
 class CutCornerShape extends Shape {
   final BorderRadius borderRadius;
 
-  CutCornerShape({this.borderRadius});
+  CutCornerShape({required this.borderRadius});
 
   @override
-  Path build({Rect rect, double scale}) {
+  Path build({required Rect rect, double? scale}) {
     return generatePath(rect: rect);
   }
 
-  Path generatePath({Rect rect}) {
+  Path generatePath({required Rect rect}) {
     final topLeftDiameter = max(borderRadius.topLeft.x, 0);
     final topRightDiameter = max(borderRadius.topRight.x, 0);
     final bottomLeftDiameter = max(borderRadius.bottomLeft.x, 0);

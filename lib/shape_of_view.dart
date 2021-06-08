@@ -12,7 +12,7 @@ export 'package:shape_of_view/shape/star.dart';
 export 'package:shape_of_view/shape/triangle.dart';
 
 abstract class Shape {
-  Path build({Rect rect, double scale});
+  Path build({required Rect rect, double? scale});
 }
 
 abstract class BorderShape {
@@ -22,7 +22,7 @@ abstract class BorderShape {
 class ShapeOfViewBorder extends ShapeBorder {
   final Shape shape;
 
-  ShapeOfViewBorder({this.shape}) : assert(shape != null);
+  ShapeOfViewBorder({required this.shape});
 
   @override
   EdgeInsetsGeometry get dimensions {
@@ -49,17 +49,17 @@ class ShapeOfViewBorder extends ShapeBorder {
   */
 
   @override
-  Path getInnerPath(Rect rect, {TextDirection textDirection}) {
-    return null;
+  Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
+    return Path();
   }
 
   @override
-  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     return shape.build(rect: rect, scale: 1);
   }
 
   @override
-  void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
+  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {
     if (shape is BorderShape) {
       (shape as BorderShape).drawBorder(canvas, rect);
     }
@@ -82,18 +82,18 @@ class ShapeOfViewBorder extends ShapeBorder {
 }
 
 class ShapeOfView extends StatelessWidget {
-  final Widget child;
+  final Widget? child;
   final Shape shape;
   final double elevation;
   final Clip clipBehavior;
-  final double height;
-  final double width;
+  final double? height;
+  final double? width;
 
   ShapeOfView({
-    Key key,
+    Key? key,
     this.child,
     this.elevation = 4,
-    this.shape,
+    required this.shape,
     this.clipBehavior = Clip.antiAlias,
     this.width,
     this.height,

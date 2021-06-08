@@ -7,15 +7,15 @@ class CustomShape extends Shape {
   final ShapeBuilder builder;
 
   CustomShape({
-    this.builder,
+    required this.builder,
   });
 
   @override
-  Path build({Rect rect, double scale}) {
+  Path build({required Rect rect, double? scale}) {
     return generatePath(rect: rect);
   }
 
-  Path generatePath({Rect rect}) {
+  Path generatePath({required Rect rect}) {
     return this.builder(rect);
   }
 }
